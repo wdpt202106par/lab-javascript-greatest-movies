@@ -1,4 +1,4 @@
-
+/*
 let movies = [
     {
       "title": "The Shawshank Redemption",
@@ -2968,15 +2968,17 @@ let movies = [
       "rate": 8
     }
   ]
-
+*/
 // Iteration 1: All directors? - Get the array of all directors.
 
-let test1 = movies.map(function(movie){
+function getAllDirectors (movies) {
+    let directors = movies.map(function(movie){
   
-    return {
-    director: movie.director}
-  })
-  console.log(test1)
+        return movie.director
+      })
+return directors
+}  
+  console.log(getAllDirectors)
 
 
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors. How could you "clean" a bit this array and make it unified (without duplicates)?
@@ -2984,11 +2986,18 @@ let test1 = movies.map(function(movie){
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
 
 
-let spielbergFilms = movies.filter(function(newFilms){
-    return movies.director === "Spielberg"
-  });
-   
-  console.log(spielbergFilms)
+function howManyMovies (movies){
+
+    let steven = movies.filter(function(newFilms) {
+        return newFilms.director === 'Steven Spielberg' 
+    })
+    let drama = steven.filter(function(newFilms){
+        return newFilms.genre.indexOf('Drama') !== -1
+    })
+    return drama.length 
+}
+
+  console.log(howManyMovies)
 // Iteration 3: All rates average - Get the average of all rates with 2 decimals
 
 // Iteration 4: Drama movies - Get the average of Drama Movies

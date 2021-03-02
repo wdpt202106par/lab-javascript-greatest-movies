@@ -1,4 +1,3 @@
-
 // Iteration 1: All directors? - Get the array of all directors.
 
 function getAllDirectors(movies) {
@@ -9,11 +8,9 @@ function getAllDirectors(movies) {
 }
 console.log(getAllDirectors(movies));
 
-
 // _Bonus_: It seems some of the directors had directed multiple movies so they will pop up multiple times in the array of directors. How could you "clean" a bit this array and make it unified (without duplicates)?
 
 // Iteration 2: Steven Spielberg. The best? - How many drama movies did STEVEN SPIELBERG direct?
-
 
 function howManyMovies(movies) {
   let steven = movies.filter(function (newFilms) {
@@ -40,7 +37,6 @@ function ratesAverage(movies) {
 console.log(ratesAverage(movies));
 
 // Iteration 4: Drama movies - Get the average of Drama Movies
-
 
 function dramaMoviesRate(movies) {
   let movie = movies.filter(function (newFilms) {
@@ -80,12 +76,14 @@ function orderAlphabetically(movie) {
     if (a.title < b.title) return -1;
     if (b.title === 0) return 0;
   });
-  return titleOrder.slice(0, 20);
+  let onlyByName = titleOrder.map(function (movie) {
+    return { title: movie.title };
+  });
+  return onlyByName.slice(0, 20);
 }
 
 console.log(orderAlphabetically(movies));
 
-  
 // BONUS - Iteration 7: Time Format - Turn duration of the movies from hours to minutes
 
 // BONUS - Iteration 8: Best yearly rate average - Best yearly rate average
